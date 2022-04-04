@@ -36,6 +36,7 @@ function App() {
         <CustonInput
           searchIP={searchIP}
           setSearchIP={setSearchIP}
+          getLocation={getLocation}
         />
       </header>
       <section className='map-section'>
