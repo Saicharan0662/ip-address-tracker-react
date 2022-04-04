@@ -1,16 +1,39 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
+import iconLoc from '../../assets/images/icon-location.svg'
 
-const Map = () => {
+const Map = ({ location }) => {
+    console.log(location)
+    const iconMarker = new L.Icon({
+        iconUrl: iconLoc,
+        iconSize: new L.Point(46, 56),
+    });
     return (
-        <MapContainer center={[51.505, -0.09]} zoom={12}>
+        <MapContainer
+            preferCanvas={true}
+            center={[
+                location?.lat,
+                location?.lng,
+            ]}
+            zoom={14}
+            scrollWheelZoom={false}
+            zoomControl={false}
+        >
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[51.505, -0.09]}>
+            <Marker
+                position={[
+                    location?.lat,
+                    location?.lng,
+                ]}
+                icon={iconMarker}
+            >
                 <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
+                    {location?.city},{" "}
+                    {location?.country}
                 </Popup>
             </Marker>
         </MapContainer>

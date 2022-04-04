@@ -49,4 +49,5 @@ header h1 {
 .map-section {
   width: 100%;
   overflow: hidden;
+  height: 67vh;
 }
