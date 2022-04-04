@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+.App {
+  font-family: 'Baloo 2', cursive;
+}
+
+header {
+  height: 32vh;
+  background-image: url('./assets/images/pattern-bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+  padding-top: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+
+#ip-address-input {
+  width: 400px;
+  outline: none;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  padding: 15px 13px;
+  color: hsl(0, 0%, 59%);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.btn {
+  padding: 14px 15px;
+  height: 47px;
+  background-color: black;
+  border-radius: 0 10px 10px 0;
+  outline: none;
+  border: none;
+  position: relative;
+  top: 0.7px;
+  cursor: pointer;
+}
+
+.map-section {
+  width: 100%;
+  overflow: hidden;
+}
