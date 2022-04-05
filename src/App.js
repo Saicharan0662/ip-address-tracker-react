@@ -3,10 +3,11 @@ import './App.css';
 import CustonInput from './components/custom-input/CustonInput';
 import Map from './components/map/Map';
 import axios from 'axios';
+import Card from './components/info-card/Card';
 
 function App() {
 
-  const [location, setLocation] = useState();
+  const [info, setInfo] = useState();
   const [searchIP, setSearchIP] = useState('');
 
   const getLocation = async (ip) => {
@@ -20,7 +21,7 @@ function App() {
       const res = await axios.get(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API_KEY
         }&ipAddress=${ip}`)
       // console.log(res.data)
-      setLocation(res.data.location)
+      setInfo(res.data)
     }
   }
 
@@ -38,15 +39,16 @@ function App() {
           setSearchIP={setSearchIP}
           getLocation={getLocation}
         />
+        <Card />
       </header>
-      <section className='map-section'>
-        {location && <Map
-          location={location}
+      {/* <section className='map-section'>
+        {info && <Map
+          info={info}
         />}
-        {!location &&
+        {!info &&
           <p>Loading...</p>
         }
-      </section>
+      </section> */}
     </div>
   );
 }

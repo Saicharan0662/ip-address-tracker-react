@@ -3,8 +3,8 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import iconLoc from '../../assets/images/icon-location.svg'
 
-const Map = ({ location }) => {
-    console.log(location)
+const Map = ({ info }) => {
+    console.log(info)
     const iconMarker = new L.Icon({
         iconUrl: iconLoc,
         iconSize: new L.Point(46, 56),
@@ -13,8 +13,8 @@ const Map = ({ location }) => {
         <MapContainer
             preferCanvas={true}
             center={[
-                location?.lat,
-                location?.lng,
+                info?.location?.lat,
+                info?.location?.lng,
             ]}
             zoom={14}
             scrollWheelZoom={false}
@@ -26,14 +26,14 @@ const Map = ({ location }) => {
             />
             <Marker
                 position={[
-                    location?.lat,
-                    location?.lng,
+                    info?.location?.lat,
+                    info?.location?.lng,
                 ]}
                 icon={iconMarker}
             >
                 <Popup>
-                    {location?.city},{" "}
-                    {location?.country}
+                    {info?.location?.city},{" "}
+                    {info?.location?.country}
                 </Popup>
             </Marker>
         </MapContainer>
