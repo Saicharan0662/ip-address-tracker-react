@@ -66,6 +66,7 @@ label {
   width: 80%;
   position: relative;
   top: 22%;
+  z-index: 2;
 }
 
 .data p:nth-child(1) {
@@ -135,3 +136,5 @@ label {
     font-size: 6px;
   }
 }
+
+/* MAPBOX MARKER */

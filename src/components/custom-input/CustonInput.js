@@ -14,6 +14,7 @@ const CustonInput = ({ searchIP, setSearchIP, getLocation }) => {
     const handleSubmit = () => {
         if (validateIp(searchIP)) {
             getLocation(searchIP);
+            setSearchIP('');
         }
         else alert("Invalid IP Address");
     }

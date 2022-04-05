@@ -1,42 +1,39 @@
 import React from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import L from 'leaflet'
 import iconLoc from '../../assets/images/icon-location.svg'
+import ReactMapboxGl, { Popup, Marker } from 'react-mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+const MapBox = ReactMapboxGl({
+    accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
+});
 
 const Map = ({ info }) => {
-    console.log(info)
-    const iconMarker = new L.Icon({
-        iconUrl: iconLoc,
-        iconSize: new L.Point(46, 56),
-    });
+    // console.log(info)
+
     return (
-        <MapContainer
-            preferCanvas={true}
-            center={[
-                info?.location?.lat,
-                info?.location?.lng,
-            ]}
-            zoom={14}
-            scrollWheelZoom={false}
-            zoomControl={false}
+        <MapBox
+            style="mapbox://styles/mapbox/streets-v9"
+            containerStyle={{
+                height: '100vh',
+                width: '100vw'
+            }}
         >
-            <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
             <Marker
-                position={[
-                    info?.location?.lat,
-                    info?.location?.lng,
-                ]}
-                icon={iconMarker}
-            >
-                <Popup>
-                    {info?.location?.city},{" "}
-                    {info?.location?.country}
-                </Popup>
+                coordinates={[info.location.lat, info.location.lng]}
+                anchor="bottom">
+                <img src={iconLoc}
+                    width={30}
+                    height={30}
+                />
             </Marker>
-        </MapContainer>
+            <Popup
+                coordinates={[info.location.lat, info.location.lng]}
+                offset={{
+                    'bottom-left': [12, -38], 'bottom': [0, -38], 'bottom-right': [-12, -38]
+                }}>
+                <h1>{info.location.region}</h1>
+            </Popup>
+        </MapBox>
     )
 }
 

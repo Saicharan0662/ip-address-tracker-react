@@ -26,7 +26,7 @@ function App() {
   }
 
   useEffect(() => {
-    // getLocation();
+    getLocation();
   }, [])
 
 
@@ -39,16 +39,18 @@ function App() {
           setSearchIP={setSearchIP}
           getLocation={getLocation}
         />
-        <Card />
+        <Card
+          info={info}
+        />
       </header>
-      {/* <section className='map-section'>
+      <section className='map-section'>
         {info && <Map
           info={info}
         />}
         {!info &&
           <p>Loading...</p>
         }
-      </section> */}
+      </section>
     </div>
   );
 }
