@@ -9,10 +9,7 @@ const MapBox = ReactMapboxGl({
 
 const Map = ({ info }) => {
     // console.log(info)
-    const handleGeocoderInit = (geocoderInstance) => {
-        const inputEl = geocoderInstance._inputEl;
-        inputEl.focus();
-    };
+
     return (
         <MapBox
             style="mapbox://styles/mapbox/streets-v9"
@@ -20,6 +17,7 @@ const Map = ({ info }) => {
                 height: '100vh',
                 width: '100vw'
             }}
+            zoom={[0.5]}
         >
             <Marker
                 coordinates={[info.location.lng, info.location.lat]}
