@@ -1,7 +1,4 @@
 # Frontend Mentor - IP address tracker
-
-![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)
-
 ## Welcome! 👋
 This is a IP address tracker made using react, mapbox and ipify API.
 
