@@ -18,7 +18,7 @@ This challenge is an Intermediate level challenge in Frontend Mentor. It is an I
 
 ### Links
 
-- Solution URL: [Solution URL](https://github.com/Saicharan0662/social-media-dashboard-with-theme-switcher)
+- Solution URL: [Solution URL](https://github.com/Saicharan0662/ip-address-tracker-react)
 
 ### Built with
 
