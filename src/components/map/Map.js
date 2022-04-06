@@ -9,7 +9,10 @@ const MapBox = ReactMapboxGl({
 
 const Map = ({ info }) => {
     // console.log(info)
-
+    const handleGeocoderInit = (geocoderInstance) => {
+        const inputEl = geocoderInstance._inputEl;
+        inputEl.focus();
+    };
     return (
         <MapBox
             style="mapbox://styles/mapbox/streets-v9"
@@ -19,19 +22,20 @@ const Map = ({ info }) => {
             }}
         >
             <Marker
-                coordinates={[info.location.lat, info.location.lng]}
+                coordinates={[info.location.lng, info.location.lat]}
                 anchor="bottom">
                 <img src={iconLoc}
                     width={30}
                     height={30}
                 />
             </Marker>
+
             <Popup
-                coordinates={[info.location.lat, info.location.lng]}
+                coordinates={[info.location.lng, info.location.lat]}
                 offset={{
                     'bottom-left': [12, -38], 'bottom': [0, -38], 'bottom-right': [-12, -38]
                 }}>
-                <h1>{info.location.region}</h1>
+                <h1>{info.location.city}</h1>
             </Popup>
         </MapBox>
     )

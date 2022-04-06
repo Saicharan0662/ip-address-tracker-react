@@ -5,24 +5,36 @@ const Card = ({ info }) => {
         <div className='data-card'>
             <div className="data">
                 <p>IP ADDRESS</p>
-                <p>{info?.ip}</p>
+                {info ?
+                    <p>{info?.ip}</p> :
+                    <p>Loading...</p>
+                }
             </div>
             <span className="border"></span>
             <div className="data">
                 <p>LOCATION</p>
-                <p>
-                    {info?.location?.city}, {info?.location?.country}, {info?.location?.postalCode}
-                </p>
+                {info ?
+                    <p>
+                        {info?.location?.city}, {info?.location?.country}, {info?.location?.postalCode}
+                    </p> :
+                    <p>Loading...</p>
+                }
             </div>
             <span className="border"></span>
             <div className="data">
                 <p>TIMEZONE</p>
-                <p>UTC-{info?.location?.timezone}</p>
+                {info ?
+                    <p>UTC-{info?.location?.timezone}</p> :
+                    <p>Loading...</p>
+                }
             </div>
             <span className="border"></span>
             <div className="data">
                 <p>ISP</p>
-                <p>{info?.isp}</p>
+                {info ?
+                    <p>{info?.isp}</p> :
+                    <p>Loading...</p>
+                }
             </div>
         </div>
     )
