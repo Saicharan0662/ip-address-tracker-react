@@ -18,10 +18,14 @@ function App() {
     }
 
     if (ip) {
-      const res = await axios.get(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API_KEY
-        }&ipAddress=${ip}`)
-      // console.log(res.data)
-      setInfo(res.data)
+      try {
+        const res = await axios.get(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API_KEY
+          }&ipAddress=${ip}`)
+        // console.log(res.data)
+        setInfo(res.data)
+      } catch (error) {
+        alert(error)
+      }
     }
   }
 
